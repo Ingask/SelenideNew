@@ -9,7 +9,6 @@ import java.util.Calendar;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.$;
 
 public class AppCardDeliveryTest {
     @Test
@@ -29,7 +28,7 @@ public class AppCardDeliveryTest {
         $$("button").find(exactText("Забронировать")).click();
         $("[data-test-id=notification]")
                 .$(withText("Успешно"))
-                .waitUntil(exist, 15000);
+                .waitUntil(visible, 15000);
 
     }
 }
