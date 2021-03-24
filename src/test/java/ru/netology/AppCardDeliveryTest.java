@@ -25,7 +25,7 @@ public class AppCardDeliveryTest {
         dateElement.sendKeys("\b\b\b\b\b\b\b\b\b\b");
         dateElement.setValue(chooseDate);
         $("[data-test-id=name] input").setValue("Иванов Иван");
-        $("[data-test-id=phone] input").setValue("+71234567891");
+        $("[data-test-id=phone] input").setValue("+7123456789");
         $("[data-test-id=agreement]").click();
         $$("button").find(exactText("Забронировать")).click();
         $("[data-test-id=notification]")
