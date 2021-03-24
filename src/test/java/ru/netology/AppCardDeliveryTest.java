@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
@@ -18,7 +17,7 @@ public class AppCardDeliveryTest {
         open("http://localhost:9999");
         $("[data-test-id = 'city'] input").setValue("Москва");
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DAY_OF_MONTH, 5);
+        calendar.add(Calendar.DAY_OF_MONTH, 10);
         SimpleDateFormat formDateFormat = new SimpleDateFormat("dd.MM.yyyy");
         String chooseDate = formDateFormat.format(calendar.getTime());
         SelenideElement dateElement =  $("[data-test-id=date] input[class=input__control]");
@@ -30,7 +29,7 @@ public class AppCardDeliveryTest {
         $$("button").find(exactText("Забронировать")).click();
         $("[data-test-id=notification]")
                 .$(withText("Успешно"))
-                .waitUntil(visible, 15000);
+                .waitUntil(exist, 15000);
 
     }
 }
