@@ -27,7 +27,7 @@ public class AppCardDeliveryTest {
         $("[data-test-id=agreement]").click();
         $$("button").find(exactText("Забронировать")).click();
         $("[data-test-id=notification]")
-                .$(withText("Успешно"))
+                .$(withText("Встреча успешно забронирована на"))
                 .waitUntil(visible, 15000);
 
     }
